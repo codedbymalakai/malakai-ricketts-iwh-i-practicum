@@ -17,6 +17,9 @@ app.use(express.static("public"));
 app.set("view engine", "pug");
 app.set("views", "./views");
 
+// Homepage route:
+// Fetches all Plant custom object records from HubSpot
+// and renders them in a table using the homepage.pug template
 app.get("/", async (req, res) => {
   try {
     const response = await axios.get(
@@ -34,7 +37,8 @@ app.get("/", async (req, res) => {
   }
 });
 
-
+// Handles form submission to create a new Plant record in HubSpot
+// then redirects back to the homepage to show the updated table
 app.get("/update-cobj", (req, res) => {
   res.render("updates", {
     title: "Update Custom Object Form | Integrating With HubSpot I Practicum"
