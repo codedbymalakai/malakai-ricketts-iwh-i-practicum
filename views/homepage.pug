@@ -8,12 +8,10 @@ html
     h1 Plants
 
     table(border="1")
-    thead
       tr
         th Name
         th Species
         th Watering Frequency
-    tbody
       each record in records
         tr
           td= record.properties.name
